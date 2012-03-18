@@ -1,0 +1,40 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	     version="2.0">
+
+    <persistence-unit name="users" transaction-type="RESOURCE_LOCAL">
+	<!-- <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider> -->
+	
+	<provider>net.sf.jpasecurity.multitenant.MultitenantPeristenceProvider</provider>
+
+	<class>net.sf.jpasecurity.UserE</class>
+
+	<properties>
+	    <!-- <property name="net.sf.jpasecurity.persistence.provider" -->
+	    <!-- 	      value="org.apache.openjpa.persistence.PersistenceProviderImpl" /> -->
+
+	    <!-- <property name="net.sf.jpasecurity.security.authentication.provider" -->
+	    <!-- 	      value="net.sf.jpasecurity.security.authentication.StaticAuthenticationProvider" /> -->
+
+	    <property name="openjpa.Log" value="DefaultLevel=TRACE, Tool=TRACE" />
+
+
+	    <property name="openjpa.jdbc.SchemaFactory" value="native(ForeignKeys=true)" />
+	    <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
+	    <!--
+		<property name="openjpa.ConnectionDriverName" value="org.hsqldb.jdbcDriver" />
+		<property name="openjpa.ConnectionURL" value="jdbc:derby:db/test1;create=true" />
+	    -->
+
+	    <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <!--
+	    <property name="javax.persistence.jdbc.url" value="jdbc:derby:db/test1;create=true"/>
+            -->
+	    <!-- <property name="javax.persistence.jdbc.user" value="sa"/> -->
+	    <!-- <property name="javax.persistence.jdbc.password" value="a"/> -->
+
+	</properties>
+
+    </persistence-unit>
+</persistence>

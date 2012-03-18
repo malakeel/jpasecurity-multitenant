@@ -1,0 +1,19 @@
+
+TODO:
+
+1- Need to make the config read using InputStream getClass().getResourceAsStream(), to read it from the jar.
+
+2- Find a way to pass the tenant ID to the EntityManger. ThreadLocal : SAFE??? 
+
+3- Read the configuration to avoid repeating properties for each tenant. In case we have more than 2 tenants, it will
+    be a source of error. Normally, we use the same DBMS so the same driver. Properties that changes are 
+        - connection url
+        - user name
+        - password 
+    Everything else should be the same to avoid erros. 
+
+4- Make the tests pass and write additional unit tests for more peristence classes. 
+
+
+
+
